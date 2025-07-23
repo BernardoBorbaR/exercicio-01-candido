@@ -1,0 +1,266 @@
+{
+  "info": {
+    "name": "TypeScript Express Prisma API",
+    "description": "Coleção para testar todos os endpoints da API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Status",
+      "item": [
+        {
+          "name": "API Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": [""]
+            }
+          }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/status",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["status"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tarefas",
+      "item": [
+        {
+          "name": "Listar Tarefas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tarefas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tarefas"]
+            }
+          }
+        },
+        {
+          "name": "Listar Tarefas Concluídas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tarefas?concluida=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tarefas"],
+              "query": [
+                {
+                  "key": "concluida",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Criar Tarefa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Estudar TypeScript\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/tarefas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tarefas"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Tarefa",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"concluida\": true\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/tarefas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tarefas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Tarefa",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tarefas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tarefas", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Biblioteca",
+      "item": [
+        {
+          "name": "Listar Livros",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/livros",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros"]
+            }
+          }
+        },
+        {
+          "name": "Filtrar por Autor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/livros?autor=Martin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros"],
+              "query": [
+                {
+                  "key": "autor",
+                  "value": "Martin"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filtrar Disponíveis",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/livros?disponivel=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros"],
+              "query": [
+                {
+                  "key": "disponivel",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Criar Livro",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Clean Code\",\n  \"autor\": \"Robert C. Martin\",\n  \"anoPublicacao\": 2008\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3000/livros",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Livro por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/livros/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros", "1"]
+            }
+          }
+        },
+        {
+          "name": "Emprestar Livro",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/livros/1/emprestar",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros", "1", "emprestar"]
+            }
+          }
+        },
+        {
+          "name": "Devolver Livro",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/livros/1/devolver",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["livros", "1", "devolver"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
